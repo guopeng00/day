@@ -15,7 +15,7 @@ public class BannerActivity extends BaseActivity<MainPresenter> implements MainC
     private Banner myBanner;
     @Override
     protected void initData() {
-
+        presenter.start();
     }
 
     public void initView() {
