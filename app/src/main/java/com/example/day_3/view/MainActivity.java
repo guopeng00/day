@@ -1,14 +1,22 @@
 package com.example.day_3.view;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.day_3.R;
 import com.example.day_3.base.BaseActivity;
+import com.example.day_3.bean.BannerBean;
 import com.example.day_3.contract.MainContract;
 import com.example.day_3.presenter.MainPresenter;
 import com.youth.banner.Banner;
+import com.youth.banner.loader.ImageLoader;
+
+import java.util.List;
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.IMainView{
 
@@ -36,11 +44,21 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public void onShow(Object object) {
-
+        if(object instanceof BannerBean){
+            BannerBean bannerBean= (BannerBean) object;
+            List<BannerBean.BannerlistBean> bannerlist = bannerBean.getBannerlist();
+            myBanner.setImages(bannerlist).setImageLoader(new ImageLoader() {
+                @Override
+                public void displayImage(Context context, Object path, ImageView imageView) {
+                    BannerBean.BannerlistBean image= (BannerBean.BannerlistBean) path;
+                    Glide.with(MainActivity.this).load(image.getImageurl()).into(imageView);
+                }
+            }).start();
+        }
     }
 
     @Override
     public void onHide(String str) {
-
+        Log.e("TAG", "onHide: "+str );
     }
 }
