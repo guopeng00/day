@@ -10,4 +10,7 @@ public class MainContract {
         void onShow(Object object);
         void onHide(String str);
     }
+    public interface IPresenter{
+        void start();
+    }
 }
