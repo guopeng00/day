@@ -4,6 +4,15 @@ import java.util.List;
 
 public class BannerBean {
 
+    @Override
+    public String toString() {
+        return "BannerBean{" +
+                "message='" + message + '\'' +
+                ", code='" + code + '\'' +
+                ", bannerlist=" + bannerlist +
+                '}';
+    }
+
     /**
      * message : 请求i成功
      * code : 200
@@ -46,6 +55,14 @@ public class BannerBean {
     public static class BannerlistBean {
         private String imageurl;
         private String htmlurl;
+
+        @Override
+        public String toString() {
+            return "BannerlistBean{" +
+                    "imageurl='" + imageurl + '\'' +
+                    ", htmlurl='" + htmlurl + '\'' +
+                    '}';
+        }
 
         public String getImageurl() {
             return imageurl;

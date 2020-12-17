@@ -1,6 +1,7 @@
 package com.example.day31.contract;
 
 import com.example.day31.base.BaseView;
+import com.example.day31.bean.BannerBean;
 import com.example.day31.utils.net.INteCallBack;
 
 public class MainContract {
