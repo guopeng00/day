@@ -7,18 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.day_3.R;
 import com.example.day_3.base.BaseActivity;
 import com.example.day_3.contract.MainContract;
+import com.example.day_3.presenter.MainPresenter;
 import com.youth.banner.Banner;
 
-public class MainActivity extends BaseActivity<MainContract.IMainView> {
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.IMainView{
 
     private Banner myBanner;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView();
-    }
 
     @Override
     protected void initData() {
@@ -32,11 +26,21 @@ public class MainActivity extends BaseActivity<MainContract.IMainView> {
 
     @Override
     protected int getLayoutID() {
-        return 0;
+        return R.layout.activity_main;
     }
 
     @Override
-    public MainContract.IMainView getPresenter() {
-        return null;
+    public MainPresenter getPresenter() {
+        return new MainPresenter(this);
+    }
+
+    @Override
+    public void onShow(Object object) {
+
+    }
+
+    @Override
+    public void onHide(String str) {
+
     }
 }
