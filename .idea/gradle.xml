@@ -11,6 +11,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Mainlibrary" />
+            <option value="$PROJECT_DIR$/Mvplibrary" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/day31" />
           </set>

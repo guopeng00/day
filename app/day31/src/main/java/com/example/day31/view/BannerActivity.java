@@ -19,7 +19,7 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.List;
 
 public class BannerActivity extends BaseActivity<MainPresenter> implements MainContract.IMainView {
-
+//就菲利克斯饭量开始了开发随机分数
     private Banner myBanner;
 
     @Override
@@ -27,7 +27,7 @@ public class BannerActivity extends BaseActivity<MainPresenter> implements MainC
         presenter.start();
     }
 
-    public void initView() {
+    protected void initView() {
         myBanner = (Banner) findViewById(R.id.my_banner);
     }
 

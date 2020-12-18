@@ -1,7 +1,6 @@
 package com.example.day_3.view;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -9,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.day_3.R;
-import com.example.day_3.base.BaseActivity;
 import com.example.day_3.bean.BannerBean;
 import com.example.day_3.contract.MainContract;
 import com.example.day_3.presenter.MainPresenter;
+import com.example.mvplibrary.base.BaseActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 
@@ -21,7 +20,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.IMainView{
 
     private Banner myBanner;
-
+//了减肥了开始父类就时空裂缝
     @Override
     protected void initData() {
         presenter.start();
@@ -39,7 +38,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public MainPresenter getPresenter() {
-        return new MainPresenter(this);
+        return new MainPresenter();
     }
 
     @Override

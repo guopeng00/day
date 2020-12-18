@@ -1,4 +1,4 @@
-package com.example.day_3.utils.net;
+package com.example.mvplibrary.utils.net;
 
 public class URlConstant {
     //    http://cdwan.cn:7000/exam2003/abannerlist.json

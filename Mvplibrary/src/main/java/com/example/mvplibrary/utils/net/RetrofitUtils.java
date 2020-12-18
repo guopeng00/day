@@ -1,4 +1,4 @@
-package com.example.day_3.utils.net;
+package com.example.mvplibrary.utils.net;
 
 import com.google.gson.Gson;
 
@@ -12,7 +12,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -22,13 +21,8 @@ public class RetrofitUtils implements INetWorkInterface{
     private ApiService apiServer;
 
     public RetrofitUtils() {
-        OkHttpClient client = new OkHttpClient.Builder().build();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(URlConstant.BASEURL)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
-        apiServer = retrofit.create(ApiService.class);
+
     }
     //单列模式重入锁
     public static RetrofitUtils getRetrofitUtils() {
@@ -44,6 +38,11 @@ public class RetrofitUtils implements INetWorkInterface{
 
     @Override
     public <T> void get(String url, INteCallBack<T> callBack) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URlConstant.BASEURL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+        apiServer = retrofit.create(ApiService.class);
         apiServer.get(url)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
