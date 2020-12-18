@@ -22,13 +22,8 @@ public class RetrofitUtils implements INetWorkInterface{
     private ApiService apiServer;
 
     public RetrofitUtils() {
-        OkHttpClient client = new OkHttpClient.Builder().build();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(URlConstant.BASEURL)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
-        apiServer = retrofit.create(ApiService.class);
+
     }
     //单列模式重入锁
     public static RetrofitUtils getRetrofitUtils() {
@@ -44,6 +39,11 @@ public class RetrofitUtils implements INetWorkInterface{
 
     @Override
     public <T> void get(String url, INteCallBack<T> callBack) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URlConstant.BASEURL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+        apiServer = retrofit.create(ApiService.class);
         apiServer.get(url)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
