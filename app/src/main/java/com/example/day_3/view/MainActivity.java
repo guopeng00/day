@@ -21,7 +21,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.IMainView{
 
     private Banner myBanner;
-
+    //接待来访祭祀孔发了啥
     @Override
     protected void initData() {
         presenter.start();
