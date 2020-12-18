@@ -1,11 +1,12 @@
 package com.example.day_3.contract;
 
 
-import com.example.day_3.base.BaseView;
-import com.example.day_3.utils.net.INteCallBack;
+import com.example.mvplibrary.base.BaseModel;
+import com.example.mvplibrary.base.BaseView;
+import com.example.mvplibrary.utils.net.INteCallBack;
 
 public class MainContract {
-    public interface IMainModel {
+    public interface IMainModel extends BaseModel {
         <T> void getMod(String url, INteCallBack<T> callBack);
     }
     public interface IMainView extends BaseView {

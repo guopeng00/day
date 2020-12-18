@@ -1,3 +1,5 @@
+include ':Mvplibrary'
+include ':Mainlibrary'
 include ':app:day31'
 include ':app'
 rootProject.name = "Day_3"

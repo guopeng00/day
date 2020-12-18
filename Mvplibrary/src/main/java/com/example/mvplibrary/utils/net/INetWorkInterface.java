@@ -1,4 +1,4 @@
-package com.example.day_3.utils.net;
+package com.example.mvplibrary.utils.net;
 
 import java.util.HashMap;
 
