@@ -20,7 +20,9 @@ import java.util.List;
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.IMainView{
 
     private Banner myBanner;
+
 //了减肥了开始父类就时空裂缝
+
     @Override
     protected void initData() {
         presenter.start();
